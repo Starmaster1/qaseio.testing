@@ -1,4 +1,4 @@
-﻿namespace SeleniumTests.Core
+﻿namespace Core
 {
     internal class DirectoryHelper
     {

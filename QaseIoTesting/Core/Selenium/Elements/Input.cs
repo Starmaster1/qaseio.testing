@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace SeleniumTests.Core.Selenium.Elements
+namespace Core.Selenium.Elements
 {
     public class Input : BaseElement
     {
