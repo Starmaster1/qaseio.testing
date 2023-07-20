@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 
-namespace SeleniumTests.Core.Selenium
+namespace Core.Selenium
 {
     public class WaitHelper
     {

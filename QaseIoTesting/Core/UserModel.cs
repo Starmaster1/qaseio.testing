@@ -1,4 +1,4 @@
-﻿namespace SeleniumTests.SwagLabs
+﻿namespace Core
 {
     public class UserModel
     {

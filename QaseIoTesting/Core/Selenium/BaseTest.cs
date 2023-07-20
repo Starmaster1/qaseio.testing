@@ -5,18 +5,20 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 
-namespace SeleniumTests.Core.Selenium
+namespace Core.Selenium
 {
     [AllureNUnit]
     [Parallelizable(ParallelScope.All)]
     public class BaseTest
     {
         private AllureLifecycle allure;
+        protected IWebDriver driver;
 
         [OneTimeSetUp]
         public void SetUp()
         {
             allure = AllureLifecycle.Instance;
+            driver = Browser.Instance.Driver;
         }
 
         [TearDown]

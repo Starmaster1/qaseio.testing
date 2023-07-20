@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SeleniumTests.Core.Selenium.Elements
+namespace Core.Selenium.Elements
 {
     public class DropDown : BaseElement
     {

@@ -3,7 +3,7 @@ using Core.Selenium;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
-namespace SeleniumTests.Core.Selenium
+namespace Core.Selenium
 {
     public class Browser
     {
@@ -34,6 +34,11 @@ namespace SeleniumTests.Core.Selenium
         {
             driver?.Dispose();
             BrowserInstances.Value = null;
+        }
+
+        public string? GetCurrentUrl()
+        {
+            return driver?.Url;
         }
 
         public void NavigateToUrl(string url)
