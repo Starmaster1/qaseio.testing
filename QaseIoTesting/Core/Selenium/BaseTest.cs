@@ -8,13 +8,13 @@ using OpenQA.Selenium;
 namespace Core.Selenium
 {
     [AllureNUnit]
-    [Parallelizable(ParallelScope.All)]
+   // [Parallelizable(ParallelScope.All)]
     public class BaseTest
     {
         private AllureLifecycle allure;
         protected IWebDriver driver;
 
-        [OneTimeSetUp]
+        [SetUp]
         public void SetUp()
         {
             allure = AllureLifecycle.Instance;
