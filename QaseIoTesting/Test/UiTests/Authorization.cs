@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Test.UiTests
 {
+
     public class Authorization : BaseTest
     {
         [Test]
@@ -28,7 +29,7 @@ namespace Test.UiTests
             new LoginPage()
                 .OpenPage()
                 .Login(user);
-            WaitHelper.WaitElement(driver, By.XPath("//a[@href='/projects']"));
+            WaitHelper.WaitElement(Browser.Instance.Driver, By.XPath("//a[@href='/projects']"));
             Assert.That(Browser.Instance.GetCurrentUrl(), Is.EqualTo("https://app.qase.io/projects"));
         }
         [Test]
@@ -60,7 +61,7 @@ namespace Test.UiTests
                 .OpenPage()
                 .Login(user);
             Assert.NotNull(Browser.Instance.Driver.FindElement(By.XPath("//*[text()[contains(.,'Security notice:')]]")));
-            WaitHelper.WaitElement(driver, By.XPath("//button[@type='submit']/*[text()='Send password reset link']"));
+            WaitHelper.WaitElement(Browser.Instance.Driver, By.XPath("//button[@type='submit']/*[text()='Send password reset link']"));
         }
 
     }

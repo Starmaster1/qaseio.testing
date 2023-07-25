@@ -1,3 +1,3 @@
 ﻿
-//[assembly: Parallelizable(ParallelScope.Self)]
-//[assembly: LevelOfParallelism(3)]
+[assembly: Parallelizable(ParallelScope.All)]
+[assembly: LevelOfParallelism(3)]

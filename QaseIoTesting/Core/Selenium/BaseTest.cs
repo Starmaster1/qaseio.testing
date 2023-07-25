@@ -7,18 +7,21 @@ using OpenQA.Selenium;
 
 namespace Core.Selenium
 {
+    [TestFixture]
     [AllureNUnit]
-   // [Parallelizable(ParallelScope.All)]
     public class BaseTest
     {
         private AllureLifecycle allure;
-        protected IWebDriver driver;
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
 
-        [SetUp]
-        public void SetUp()
         {
             allure = AllureLifecycle.Instance;
-            driver = Browser.Instance.Driver;
+        }
+
+    [SetUp]
+        public void SetUp()
+        {
         }
 
         [TearDown]
