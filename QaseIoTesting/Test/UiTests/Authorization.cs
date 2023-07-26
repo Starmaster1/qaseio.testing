@@ -18,6 +18,7 @@ namespace Test.UiTests
     public class Authorization : BaseTest
     {
         [Test]
+        [Category("UI")]
         [AllureDescription("QIT-1 Login to qase.io as standard user")]
         [AllureLink("https://app.qase.io/case/QIT-1")]
         [AllureSeverity(SeverityLevel.critical)]
@@ -33,6 +34,7 @@ namespace Test.UiTests
             Assert.That(Browser.Instance.GetCurrentUrl(), Is.EqualTo("https://app.qase.io/projects"));
         }
         [Test]
+        [Category("UI")]
         [AllureDescription("QIT-2 Login to qase.io as standard user with wrong password")]
         [AllureLink("https://app.qase.io/case/QIT-2")]
         [AllureSeverity(SeverityLevel.critical)]
@@ -48,6 +50,7 @@ namespace Test.UiTests
             Assert.NotNull(Browser.Instance.Driver.FindElement(By.XPath("//*[text()='These credentials do not match our records.']")));
         }
         [Test]
+        [Category("UI")]
         [AllureDescription("QIT-3 Login to qase.io as standard user with simple password")]
         [AllureLink("https://app.qase.io/case/QIT-3")]
         [AllureSeverity(SeverityLevel.normal)]
