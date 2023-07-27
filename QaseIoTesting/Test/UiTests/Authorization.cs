@@ -30,7 +30,7 @@ namespace Test.UiTests
             new LoginPage()
                 .OpenPage()
                 .Login(user);
-            WaitHelper.WaitElement(Browser.Instance.Driver, By.XPath("//a[@href='/projects']"));
+            WaitHelper.WaitElement(Browser.Instance.Driver, LoginPage.projectMenuLinkLocator);
             Assert.That(Browser.Instance.GetCurrentUrl(), Is.EqualTo("https://app.qase.io/projects"));
         }
         [Test]
@@ -47,7 +47,7 @@ namespace Test.UiTests
             new LoginPage()
                 .OpenPage()
                 .Login(user);
-            Assert.NotNull(Browser.Instance.Driver.FindElement(By.XPath("//*[text()='These credentials do not match our records.']")));
+            Assert.NotNull(Browser.Instance.Driver.FindElement(LoginPage.msgWrongPassLocator));
         }
         [Test]
         [Category("UI")]
@@ -63,8 +63,8 @@ namespace Test.UiTests
             new LoginPage()
                 .OpenPage()
                 .Login(user);
-            Assert.NotNull(Browser.Instance.Driver.FindElement(By.XPath("//*[text()[contains(.,'Security notice:')]]")));
-            WaitHelper.WaitElement(Browser.Instance.Driver, By.XPath("//button[@type='submit']/*[text()='Send password reset link']"));
+            Assert.NotNull(Browser.Instance.Driver.FindElement(LoginPage.msgSimplePassLocator));
+            WaitHelper.WaitElement(Browser.Instance.Driver, LoginPage.resetPswdButtonLocator);
         }
 
     }

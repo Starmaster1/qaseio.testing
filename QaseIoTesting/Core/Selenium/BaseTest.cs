@@ -19,15 +19,10 @@ namespace Core.Selenium
             allure = AllureLifecycle.Instance;
         }
 
-    [SetUp]
-        public void SetUp()
-        {
-        }
-
         [TearDown]
         public void TearDown()
         {
-            if(TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
                 Screenshot screenshot = ((ITakesScreenshot)Browser.Instance.Driver).GetScreenshot();
                 byte[] bytes = screenshot.AsByteArray;

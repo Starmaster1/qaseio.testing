@@ -10,15 +10,6 @@ namespace Core.Configuration
 
         static AppConfiguration()
         {
-            //Environment.SetEnvironmentVariable("BROWSER","awesd");
-            //var t = Environment.GetEnvironmentVariable("BROWSER");
-
-            //configurationRoot = new ConfigurationBuilder()
-            //    .SetBasePath(Directory.GetCurrentDirectory())
-            //    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            //    .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("BROWSER")}.json", optional: true, reloadOnChange: true)
-            //    .Build();
-
             configurationRoot = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
