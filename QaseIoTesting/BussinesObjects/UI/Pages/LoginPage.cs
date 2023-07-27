@@ -14,14 +14,17 @@ using System.Threading.Tasks;
 
 namespace BussinesObjects.UI.Pages
 {
-    [AllureNUnit]
-    public class LoginPage
+    public class LoginPage : BasePage
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        public static By msgWrongPassLocator = By.XPath("//*[text()='These credentials do not match our records.']");
+        public static By msgSimplePassLocator = By.XPath("//*[text()[contains(.,'Security notice:')]]");
+        public static By resetPswdButtonLocator = By.XPath("//button[@type='submit']/*[text()='Send password reset link']");
 
         private Input userNameInput = new(By.XPath("//input[@placeholder='E-Mail']"));
         private Input passwordInput = new(By.XPath("//input[@placeholder='Password']"));
         private Button loginButton = new(By.XPath("//button[@type='submit']"));
+        private Button resetPswdButton = new(resetPswdButtonLocator);
 
         [AllureStep("Открываем страницу авторизации")]
         public LoginPage OpenPage()
