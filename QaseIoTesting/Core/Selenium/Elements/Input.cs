@@ -8,7 +8,7 @@ namespace Core.Selenium.Elements
         {
         }
 
-        public Input(string name) : base($"//label[text()='{name}']/following-sibling::div/input")
+        public Input(string name) : base($"//input[@id='{name}']")
         {
         }
     }

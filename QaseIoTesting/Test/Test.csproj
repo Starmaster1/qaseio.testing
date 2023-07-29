@@ -14,7 +14,7 @@
     <None Remove="appsettings.json" />
     <None Remove="appsettings.Prod.json" />
     <None Remove="appsettings.qa.json" />
-    <None Remove="runsettings\BrowserSetUp.runsettings" />
+    <None Remove="runsettings\TestData.runsettings" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +30,7 @@
     <Content Include="appsettings.qa.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="runsettings\BrowserSetUp.runsettings">
+    <Content Include="runsettings\TestData.runsettings">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
