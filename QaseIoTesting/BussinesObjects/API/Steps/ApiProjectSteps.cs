@@ -24,6 +24,13 @@ namespace BussinesObjects.API.Steps
 
             return JsonConvert.DeserializeObject<CommonResultResponse<Project>>(response.Content).Result;
         }
+        public new Project CheckProjectByCode(string code)
+        {
+            var response = base.GetProjectByCode(code);
+            Assert.IsNotNull(response.Content);
+
+            return JsonConvert.DeserializeObject<CommonResultResponse<Project>>(response.Content).Result;
+        }
 
         public new CommonResultResponse<Project> DeleteProjectByCode(string code)
         {

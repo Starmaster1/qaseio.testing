@@ -1,12 +1,6 @@
 ﻿using Allure.Commons;
-using BussinesObjects.API.Services;
+using BussinesObjects;
 using NUnit.Allure.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test.ApiTests
 {
@@ -15,22 +9,22 @@ namespace Test.ApiTests
     {
 
         [Test]
-        [AllureDescription("QIT-4 Get project information by code")]
+        [AllureDescription("QIT-4 Get projectResponse information by code")]
         [AllureLink("https://app.qase.io/case/QIT-4")]
         [AllureSeverity(SeverityLevel.critical)]
         [AllureOwner("Alexander Starostin")]
         [Category("API")]
         public void GetProjectByCode()
         {
-            var projectCode = "DEMO";
+            var project = ProjectBuilder.GetStandartProject(); 
 
-            var project = apiProjectSteps.GetProjectByCode(projectCode);
+            var projectResponse = apiProjectSteps.GetProjectByCode(project.Code);
 
-            Assert.IsTrue(project.Title == "Demo Project");
-            Assert.IsTrue(project.Code == "DEMO");
-            Assert.IsTrue(project.Counts.Cases == 10);
-            Assert.IsTrue(project.Counts.Suites == 3);
-            Assert.IsTrue(project.Counts.Milestones == 2);
+            Assert.IsTrue(projectResponse.Title == project.Title);
+            Assert.IsTrue(projectResponse.Code == project.Code);
+            Assert.IsTrue(projectResponse.Counts.Cases == 0);
+            Assert.IsTrue(projectResponse.Counts.Suites == 0);
+            Assert.IsTrue(projectResponse.Counts.Milestones == 0);
         }
     }
 }

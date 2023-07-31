@@ -7,6 +7,5 @@
         public bool Hedless { get; set; }
         public string Type { get; set; }
         public int TimeOut { get; set; }
-        public List<UserModel> ListOfUsers { get; set; }
     }
 }

@@ -1,16 +1,10 @@
 ﻿using Allure.Commons;
 using BussinesObjects;
 using BussinesObjects.UI.Pages;
+using BussinesObjects.UI.Steps;
+using Core;
 using Core.Selenium;
-using Faker;
-using NLog;
 using NUnit.Allure.Attributes;
-using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test.UiTests
 {
@@ -26,10 +20,8 @@ namespace Test.UiTests
         public void LoginStandartUser()
         {
             var user = UserBuilder.GetStandartUser();
+            UISteps.Login(user);
 
-            new LoginPage()
-                .OpenPage()
-                .Login(user);
             WaitHelper.WaitElement(Browser.Instance.Driver, LoginPage.projectMenuLinkLocator);
             Assert.That(Browser.Instance.GetCurrentUrl(), Is.EqualTo("https://app.qase.io/projects"));
         }
@@ -43,10 +35,7 @@ namespace Test.UiTests
         {
             var user = UserBuilder.GetStandartUser();
             user.Password = "adsfvc@43f#2";
-
-            new LoginPage()
-                .OpenPage()
-                .Login(user);
+            UISteps.Login(user);
             Assert.NotNull(Browser.Instance.Driver.FindElement(LoginPage.msgWrongPassLocator));
         }
         [Test]
@@ -60,9 +49,7 @@ namespace Test.UiTests
             var user = UserBuilder.GetStandartUser();
             user.Password = "12345";
 
-            new LoginPage()
-                .OpenPage()
-                .Login(user);
+            UISteps.Login(user);
             Assert.NotNull(Browser.Instance.Driver.FindElement(LoginPage.msgSimplePassLocator));
             WaitHelper.WaitElement(Browser.Instance.Driver, LoginPage.resetPswdButtonLocator);
         }
