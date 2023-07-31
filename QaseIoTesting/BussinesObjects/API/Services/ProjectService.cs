@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BussinesObjects.API.RestEntities;
+﻿using BussinesObjects.API.RestEntities;
+using Core;
 using Core.API;
 using Core.Configuration;
-using Microsoft.Extensions.Configuration;
 using RestSharp;
 
 namespace BussinesObjects.API.Services
@@ -27,7 +22,7 @@ namespace BussinesObjects.API.Services
             return response;
         }
 
-        public RestResponse CreateProject(CreateProjectModel project)
+        public RestResponse CreateProject(ProjectModel project)
         {
             var request = new RestRequest(ProjectEndpoint, Method.Post);
             request.AddBody(project);

@@ -14,12 +14,14 @@ namespace Test.ApiTests
     {
         protected ProjectService projectService;
         protected ApiProjectSteps apiProjectSteps;
+        protected ApiTestCaseSteps apiTestCaseSteps;
 
         [OneTimeSetUp]
         public void SetUp()
         {
             projectService = new ProjectService();
             apiProjectSteps = new ApiProjectSteps();
+            apiTestCaseSteps = new ApiTestCaseSteps();
         }
 
         [OneTimeSetUp]

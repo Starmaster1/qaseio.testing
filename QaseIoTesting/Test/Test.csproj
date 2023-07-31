@@ -14,6 +14,7 @@
     <None Remove="appsettings.json" />
     <None Remove="appsettings.Prod.json" />
     <None Remove="appsettings.qa.json" />
+    <None Remove="NLog.config" />
     <None Remove="runsettings\TestData.runsettings" />
   </ItemGroup>
 
@@ -28,6 +29,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="appsettings.qa.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="runsettings\TestData.runsettings">

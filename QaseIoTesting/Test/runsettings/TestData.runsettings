@@ -3,9 +3,9 @@
 	<TestRunParameters>
 		<Parameter name="StandartUserName" value="starostin.g@gmail.com"/>
 		<Parameter name="StandartUserPassword" value="z7VKguUY"/>		
-		<Parameter name="ProjectTitle" value="Demo Project"/>		
-		<Parameter name="ProjectCode" value="DP"/>		
-		<Parameter name="ProjectDescription" value="DEMO Description"/>		
+		<Parameter name="ProjectTitle" value="Project for tests"/>		
+		<Parameter name="ProjectCode" value="PFT"/>		
+		<Parameter name="ProjectDescription" value="Demo project for test-cases"/>		
 	</TestRunParameters>
 </RunSettings>
 	

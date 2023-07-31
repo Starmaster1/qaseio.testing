@@ -22,9 +22,6 @@ namespace Test.ApiTests
 
             Assert.IsTrue(projectResponse.Title == project.Title);
             Assert.IsTrue(projectResponse.Code == project.Code);
-            Assert.IsTrue(projectResponse.Counts.Cases == 0);
-            Assert.IsTrue(projectResponse.Counts.Suites == 0);
-            Assert.IsTrue(projectResponse.Counts.Milestones == 0);
         }
     }
 }

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Core.Selenium.Elements
 {
-    public class Button : BaseElement
+    public class TextArea : BaseElement
     {
-        public Button(By locator) : base(locator)
+        public TextArea(By locator) : base(locator)
         {
         }
 
-        public Button(string type) : base($"//button[@type='{type}']")
+        public TextArea(string name) : base($"//textarea[@name='{name}']")
         {
         }
     }

@@ -9,7 +9,7 @@ using NUnit.Allure.Attributes;
 namespace Test.UiTests
 {
 
-    public class Authorization : BaseTest
+    public class AuthorizationTests : BaseTest
     {
         [Test]
         [Category("UI")]

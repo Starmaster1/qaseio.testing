@@ -17,5 +17,10 @@ namespace BussinesObjects.UI.Steps
                 .OpenPage()
                 .Login(user);
         }
+        public static void OpenProject(ProjectModel project)
+        {
+            new ProjectPage()
+                .OpenProject(project);
+        }
     }
 }
