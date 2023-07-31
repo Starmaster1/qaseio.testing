@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<RunSettings>
+	<TestRunParameters>
+		<Parameter name="StandartUserName" value="starostin.g@gmail.com"/>
+		<Parameter name="StandartUserPassword" value="z7VKguUY"/>		
+		<Parameter name="ProjectTitle" value="Project for tests"/>		
+		<Parameter name="ProjectCode" value="PFT"/>		
+		<Parameter name="ProjectDescription" value="Demo project for test-cases"/>		
+	</TestRunParameters>
+</RunSettings>
+	
