@@ -9,10 +9,12 @@ using Core.Configuration;
 using Test.ApiTests;
 using BussinesObjects.UI.Steps;
 using OpenQA.Selenium.Support.UI;
+using BussinesObjects.API.RestEntities;
+using Core;
 
 namespace Test.UiTests
 {
-    public class Projects : BaseTest
+    public class ProjectsTests : BaseTest
     {
         [Test]
         [Category("UI")]
@@ -30,34 +32,36 @@ namespace Test.UiTests
             new ProjectPage()
                 .CreateProject();
             new CreateProjectModal()
-                .CreateProject(projectTitle, "public","all");
+                .CreateProject(projectTitle, "public", "all");
             var projectResponse = new ApiProjectSteps().GetProjectByCode(projectCode);
             var delPrjResponse = new ApiProjectSteps().DeleteProjectByCode(projectCode);
             Assert.IsTrue(projectTitle == projectResponse.Title);
         }
-        //[Test] //Не готов пока
-        //[Category("UI")]
-        //[AllureDescription("QIT-6 Edit project")]
-        //[AllureLink("https://app.qase.io/case/QIT-6")]
-        //[AllureSeverity(SeverityLevel.critical)]
-        //[AllureOwner("Alexander Starostin")]
-        //public void EditProject()
-        //{
-        //    var user = UserBuilder.GetStandartUser();
-        //    var projectTitle = "Demo Project";
-        //    var projectCode = "DEMO";
-        //    UISteps.Login(user);
+        [Test]
+        [Category("UI")]
+        [AllureDescription("QIT-6 Edit project")]
+        [AllureLink("https://app.qase.io/case/QIT-6")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureOwner("Alexander Starostin")]
+        public void EditProject()
+        {
+            var user = UserBuilder.GetStandartUser();
+            var project = ProjectBuilder.GetRandomProject();
+            var newProjectResponse = new ApiProjectSteps().CreateProject(project);
+            UISteps.Login(user);
+            new ProjectPage()
+                 .EditProject(project.Title);
+            project.Title = "Edited Project";
+            project.Code = "EDP";
+            project.Description = "Edited project description";
+            new EditProgectPage()
+                .GeneralSettingsProject(project, "public");
+            var projectResponse = new ApiProjectSteps().GetProjectByCode(project.Code);
+            Assert.IsTrue(projectResponse.Title == project.Title);
+            var delPrjResponse = new ApiProjectSteps().DeleteProjectByCode(project.Code);
+        }
 
-        //    new ProjectPage()
-        //        .CreateProject();
-        //    new CreateProjectModal()
-        //        .CreateProject(projectTitle, "public", "all");
-        //    var projectResponse = new ApiProjectSteps().GetProjectByCode(projectCode);
-        //    var delPrjResponse = new ApiProjectSteps().DeleteProjectByCode(projectCode);
-        //    Assert.IsTrue(projectTitle == projectResponse.Title);
-        //}
-
-        [Test] //Не готов пока
+        [Test]
         [Category("UI")]
         [AllureDescription("QIT-7 Delete project")]
         [AllureLink("https://app.qase.io/case/QIT-7")]
@@ -66,17 +70,16 @@ namespace Test.UiTests
         public void DeleteProject()
         {
             var user = UserBuilder.GetStandartUser();
-            var projectTitle = "Project to delete";
-            var projectCode = "PTD";
             UISteps.Login(user);
+            var newProject = ProjectBuilder.GetRandomProject();
 
+            new ApiProjectSteps().CreateProject(newProject);
             new ProjectPage()
-                .DeleteProject(projectTitle);
+                .DeleteProject(newProject.Title);
             new DeleteProjectModal()
                 .Delete();
-            Browser.Instance.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-            //var projectResponse = new ApiProjectSteps().CheckProjectByCode(projectCode);
-            //Assert.IsNull(projectResponse.Title);
+            var projectResponse = new ApiProjectSteps().CheckProjectByCode(newProject.Code);
+            Assert.IsTrue(projectResponse == "Not Found");
         }
 
     }
